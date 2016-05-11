@@ -74,7 +74,7 @@ public class Bridge implements MqttCallback {
 	@Override
 	public void messageArrived(String topic, MqttMessage message) throws Exception {
 		byte[] payload = message.getPayload();
-                kafkaProducer.send(new KeyedMessage<String, String>(topic, new String(payload)));
+                kafkaProducer.send(new KeyedMessage<String, String>("test", new String(payload)));
 	}
 
 	/**
